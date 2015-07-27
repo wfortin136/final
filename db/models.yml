@@ -1,0 +1,55 @@
+Fight
+  fight_id: integer
+  fight_num: integer
+  card_level: integer
+  rounds_sch: integer
+  fightime: integer
+  method: string
+  scorecard_id: integer
+
+Fighter
+  fighter_id: integer
+  name: string
+  wins: integer
+  losses: integer
+  draws: integer
+  nc: integer
+
+Judge
+  judge_id: integer
+  name: string
+
+Fightcard
+  ifightcard_id: integer
+  name: string
+  city: string
+  state: string
+  country: string
+  year: integer
+  day: integer
+  month: integer
+
+Scorecard
+  scorecard_id: integer
+  fighter_1_id: integer
+  fighter_2_id: integer
+  j_1_score_id: integer
+  j_2_score_id: integer
+  j_3_score_id: integer
+  pic: string
+
+Judgescore
+  judgescore_id: integer
+  judge_id: integer
+  r1_1: integer
+  r2_1: integer
+  r3_1: integer
+  r4_1: integer
+  r5_1: integer
+  r1_2: integer
+  r2_2: integer
+  r3_2: integer
+  r4_2: integer
+  r5_2: integer
+  t1: integer
+  t2: integer

@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+
+  root 'fights#index'
+
+  #resources :fights
+  get '/fights', controller: 'fights', action: 'index'
+  post '/fights', controller: 'fights', action: 'create'
+  get '/fights/:id', controller: 'fights', action: 'show'
+  patch '/fights/:id', controller: 'fights', action: 'update'
+  delete '/fights/:id', controller: 'fights', action: 'destroy'
+  get '/fights/new', controller: 'fights', action: 'new'
+  get 'fights/:id', controller: 'fights', action: 'edit'
+
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
