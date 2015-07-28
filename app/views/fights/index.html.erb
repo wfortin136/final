@@ -1,1 +1,63 @@
-<h1> Fights <h1>
+<h1> Fights </h1>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th width="5%"></th>
+      <th width="23%">Fight</th>
+      <th width="7%">Event</th>
+      <th width="15%">Location</th>
+      <th width="7%">Date</th>
+      <th width="10%">Weightclass</th>
+      <th width="8%">Championship</th>
+      <!--<th width="5%">Rounds Scheduled</th>-->
+      <th width="20%">Result</th>
+      <th width="5%">Time</th>
+    </tr>
+  <tbody>
+    <% @fights.each do |fight|%>
+      <tr>
+        <td>
+          <a class="btn" href="/fights/<%=fight.id%>">Select</button>
+        </td>
+        <td>
+          <%# Fight%>
+          <%= link_to fight.fighter_1.name, "/fights/#{fight.fighter_1.id}"%> vs. <%= link_to fight.fighter_2.name, "/fights/#{fight.fighter_2.id}"%>
+        </td>
+        <td>
+          <%# Event%>
+          <%= link_to fight.fightcard.name, "/fightcards/#{fight.fightcard.id}"%>
+        </td>
+        <td>
+          <%# Location%>
+          <%= fight.fightcard.city%>, <%= fight.fightcard.state%>, <%=fight.fightcard.country%>
+        </td>
+        <td>
+          <%# Date%>
+          <%= fight.fightcard.month%>-<%=fight.fightcard.day%>-<%= fight.fightcard.year%>
+        </td>
+        <td>
+          <%# Weightclass%>
+          <%= fight.weightclass%>
+        </td>
+        <td>
+          <%# Championship%>
+          <%= fight.championship %>
+        </td>
+        <!--<td>
+          <%# rounds%>
+          <%= fight.rounds_sch %>
+          </td>-->
+        <td>
+          <%# method of finish%>
+          <%= fight.method %>
+        </td>
+        <td>
+          <%# fighttime%>
+          <%= fight.fighttime %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

@@ -14,7 +14,6 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "fightcards", force: :cascade do |t|
-    t.integer "ifightcard_id"
     t.string  "name"
     t.string  "city"
     t.string  "state"
@@ -24,10 +23,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "month"
   end
 
-  add_index "fightcards", ["ifightcard_id"], name: "index_fightcards_on_ifightcard_id"
-
   create_table "fighters", force: :cascade do |t|
-    t.integer "fighter_id"
     t.string  "name"
     t.integer "wins"
     t.integer "losses"
@@ -35,30 +31,26 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "nc"
   end
 
-  add_index "fighters", ["fighter_id"], name: "index_fighters_on_fighter_id"
-
   create_table "fights", force: :cascade do |t|
-    t.integer "fight_id"
     t.integer "fight_num"
     t.integer "card_level"
     t.integer "rounds_sch"
-    t.integer "fightime"
     t.string  "method"
     t.integer "scorecard_id"
+    t.integer "fightcard_id"
+    t.integer "fighttime"
+    t.string  "weightclass"
+    t.integer "championship"
   end
 
-  add_index "fights", ["fight_id"], name: "index_fights_on_fight_id"
+  add_index "fights", ["fightcard_id"], name: "index_fights_on_fightcard_id"
   add_index "fights", ["scorecard_id"], name: "index_fights_on_scorecard_id"
 
   create_table "judges", force: :cascade do |t|
-    t.integer "judge_id"
-    t.string  "name"
+    t.string "name"
   end
 
-  add_index "judges", ["judge_id"], name: "index_judges_on_judge_id"
-
   create_table "judgescores", force: :cascade do |t|
-    t.integer "judgescore_id"
     t.integer "judge_id"
     t.integer "r1_1"
     t.integer "r2_1"
@@ -75,10 +67,8 @@ ActiveRecord::Schema.define(version: 0) do
   end
 
   add_index "judgescores", ["judge_id"], name: "index_judgescores_on_judge_id"
-  add_index "judgescores", ["judgescore_id"], name: "index_judgescores_on_judgescore_id"
 
   create_table "scorecards", force: :cascade do |t|
-    t.integer "scorecard_id"
     t.integer "fighter_1_id"
     t.integer "fighter_2_id"
     t.integer "j_1_score_id"
@@ -92,6 +82,5 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "scorecards", ["j_1_score_id"], name: "index_scorecards_on_j_1_score_id"
   add_index "scorecards", ["j_2_score_id"], name: "index_scorecards_on_j_2_score_id"
   add_index "scorecards", ["j_3_score_id"], name: "index_scorecards_on_j_3_score_id"
-  add_index "scorecards", ["scorecard_id"], name: "index_scorecards_on_scorecard_id"
 
 end

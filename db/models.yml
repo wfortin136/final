@@ -1,14 +1,15 @@
 Fight
-  fight_id: integer
+  fightcard_id: integer
   fight_num: integer
+  weightclass: string
+  championship: integer
   card_level: integer
   rounds_sch: integer
-  fightime: integer
+  fighttime: integer
   method: string
   scorecard_id: integer
 
 Fighter
-  fighter_id: integer
   name: string
   wins: integer
   losses: integer
@@ -16,11 +17,9 @@ Fighter
   nc: integer
 
 Judge
-  judge_id: integer
   name: string
 
 Fightcard
-  ifightcard_id: integer
   name: string
   city: string
   state: string
@@ -30,7 +29,6 @@ Fightcard
   month: integer
 
 Scorecard
-  scorecard_id: integer
   fighter_1_id: integer
   fighter_2_id: integer
   j_1_score_id: integer
@@ -39,7 +37,6 @@ Scorecard
   pic: string
 
 Judgescore
-  judgescore_id: integer
   judge_id: integer
   r1_1: integer
   r2_1: integer
