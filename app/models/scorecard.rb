@@ -1,5 +1,7 @@
 class Scorecard < ActiveRecord::Base
   #belongs_to :fight, class_name: "Fight"
+  
+  
   has_one :fighter_1, class_name: "Fighter", foreign_key: :id, primary_key: :fighter_1_id
   has_one :fighter_2, class_name: "Fighter", foreign_key: :id, primary_key: :fighter_2_id
   
