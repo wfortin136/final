@@ -7,8 +7,8 @@ marco = Judge.create(name: "Marco Rosales")
 glenn_t = Judge.create(name: "Glenn Trowbridge")
 
 Fighter.delete_all
-tj = Fighter.create(name: "T.J. Dillashaw", wins: 12, losses: 2, draws: 0, nc: 0)
-renan = Fighter.create(name: "Renan Barao", wins: 33, losses: 3, draws: 0, nc: 1)
+tj = Fighter.create(name: "T.J. Dillashaw", wins: 12, losses: 2, draws: 0, nc: 0, picture: "http://www.sherdog.com/image_crop.php?image=http://www.origin.sherdog.com/_images/fighter/20131219095141_tj_dillashaw.JPG&&width=200&&height=300")
+renan = Fighter.create(name: "Renan Barao", wins: 33, losses: 3, draws: 0, nc: 1, picture: "http://www.fighthubtv.com/wp-content/uploads/2012/12/barao.jpg")
 r_lawler = Fighter.create(name: "Robbie Lawler", wins: 26, losses: 10, draws: 0, nc: 1)
 j_hendricks = Fighter.create(name: "Johny Hendricks", wins: 17, losses: 3, draws: 0, nc: 0)
 

@@ -15,7 +15,7 @@ Fighter
   losses: integer
   draws: integer
   nc: integer
-
+  picture: string
 Judge
   name: string
 

@@ -5,11 +5,11 @@ Rails.application.routes.draw do
   #resources :fights
   get '/fights', controller: 'fights', action: 'index'
   post '/fights', controller: 'fights', action: 'create'
+  get '/fights/new', controller: 'fights', action: 'new'
   get '/fights/:id', controller: 'fights', action: 'show'
   patch '/fights/:id', controller: 'fights', action: 'update'
   delete '/fights/:id', controller: 'fights', action: 'destroy'
-  get '/fights/new', controller: 'fights', action: 'new'
-  get 'fights/:id', controller: 'fights', action: 'edit'
+  get 'fights/:id/edit', controller: 'fights', action: 'edit'
 
   
   # The priority is based upon order of creation: first created -> highest priority.

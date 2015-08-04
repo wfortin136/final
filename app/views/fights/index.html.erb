@@ -1,9 +1,9 @@
 <h1> Fights </h1>
-
+<h3> <%= link_to "[New Fight]", "/fights/new"%> </h3>
 <table class='table table-striped'>
   <thead>
     <tr>
-      <th width="5%"></th>
+      <th width="3%"></th>
       <th width="23%">Fight</th>
       <th width="7%">Event</th>
       <th width="15%">Location</th>
@@ -12,7 +12,7 @@
       <th width="8%">Championship</th>
       <!--<th width="5%">Rounds Scheduled</th>-->
       <th width="20%">Result</th>
-      <th width="5%">Time</th>
+      <th width="8%">Time</th>
     </tr>
   <tbody>
     <% @fights.each do |fight|%>
@@ -22,7 +22,7 @@
         </td>
         <td>
           <%# Fight%>
-          <%= link_to fight.fighter_1.name, "/fights/#{fight.fighter_1.id}"%> vs. <%= link_to fight.fighter_2.name, "/fights/#{fight.fighter_2.id}"%>
+          <%= link_to fight.fighter_1.name, "/fighters/#{fight.fighter_1.id}"%> vs. <%= link_to fight.fighter_2.name, "/fighters/#{fight.fighter_2.id}"%>
         </td>
         <td>
           <%# Event%>
@@ -54,7 +54,7 @@
         </td>
         <td>
           <%# fighttime%>
-          <%= fight.fighttime %>
+          R<%= fight.round %> <%= fight.roundminutes%>: <%= fight.roundsecs%>
         </td>
       </tr>
     <% end %>

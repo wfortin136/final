@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "losses"
     t.integer "draws"
     t.integer "nc"
+    t.string  "picture"
   end
 
   create_table "fights", force: :cascade do |t|
