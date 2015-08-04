@@ -41,9 +41,27 @@
       </tr>
       <tr>
         <th width="10%"> Round </th>
-        <th width="30%" colspan="2"> <%= @fight.judge_1.name %> </th>
-        <th width="30%" colspan="2"> <%= @fight.judge_2.name %> </th>
-        <th width="30%" colspan="2"> <%= @fight.judge_3.name %> </th>
+        <th width="30%" colspan="2"> 
+          <%=
+            if @fight.judge_1 
+              @fight.judge_1.name 
+            end
+          %> 
+        </th>
+        <th width="30%" colspan="2"> 
+          <%=
+            if @fight.judge_2 
+              @fight.judge_2.name 
+            end
+          %>
+        </th>
+        <th width="30%" colspan="2"> 
+          <%=
+            if @fight.judge_3 
+              @fight.judge_3.name 
+            end
+          %>
+        </th>
       </tr>
       <tr>
         <th> </th>
@@ -58,61 +76,96 @@
     <tbody>
     <tr>
       <th scope="row"> 1 </th>
-      <td><%= @fight.score_1.r1_1%></td>
-      <td><%= @fight.score_1.r1_2%></td>
-      <td><%= @fight.score_2.r1_1%></td>
-      <td><%= @fight.score_2.r1_2%></td>
-      <td><%= @fight.score_3.r1_1%></td>
-      <td><%= @fight.score_3.r1_2%></td>
+      <% if @fight.judge_1 %>
+        <td><%= @fight.score_1.r1_1%></td>
+        <td><%= @fight.score_1.r1_2%></td>
+      <%end%>
+      <% if @fight.judge_2 %>
+        <td><%= @fight.score_2.r1_1%></td>
+        <td><%= @fight.score_2.r1_2%></td>
+      <%end%>
+      <% if @fight.judge_3 %>
+        <td><%= @fight.score_3.r1_1%></td>
+        <td><%= @fight.score_3.r1_2%></td>
+      <%end%>
     </tr>
     <tr>
       <th scope="row"> 2 </th>
-      <td><%= @fight.score_1.r2_1%></td>
-      <td><%= @fight.score_1.r2_2%></td>
-      <td><%= @fight.score_2.r2_1%></td>
-      <td><%= @fight.score_2.r2_2%></td>
-      <td><%= @fight.score_3.r2_1%></td>
-      <td><%= @fight.score_3.r2_2%></td>
+      <% if @fight.judge_1 %>
+        <td><%= @fight.score_1.r2_1%></td>
+        <td><%= @fight.score_1.r2_2%></td>
+      <%end%>
+      <% if @fight.judge_2 %>
+        <td><%= @fight.score_2.r2_1%></td>
+        <td><%= @fight.score_2.r2_2%></td>
+      <%end%>
+      <% if @fight.judge_3 %>
+        <td><%= @fight.score_3.r2_1%></td>
+        <td><%= @fight.score_3.r2_2%></td>
+      <%end%>
     </tr>
     <tr>
       <th scope="row"> 3 </th>
-      <td><%= @fight.score_1.r3_1%></td>
-      <td><%= @fight.score_1.r3_2%></td>
-      <td><%= @fight.score_2.r3_1%></td>
-      <td><%= @fight.score_2.r3_2%></td>
-      <td><%= @fight.score_3.r3_1%></td>
-      <td><%= @fight.score_3.r3_2%></td>
+      <% if @fight.judge_1 %>
+        <td><%= @fight.score_1.r3_1%></td>
+        <td><%= @fight.score_1.r3_2%></td>
+      <%end%>
+      <% if @fight.judge_2 %>
+        <td><%= @fight.score_2.r3_1%></td>
+        <td><%= @fight.score_2.r3_2%></td>
+      <%end%>
+      <% if @fight.judge_3 %>
+        <td><%= @fight.score_3.r3_1%></td>
+        <td><%= @fight.score_3.r3_2%></td>
+      <%end%>
     </tr>
     <tr>
       <th scope="row"> 4 </th>
-      <td><%= @fight.score_1.r4_1%></td>
-      <td><%= @fight.score_1.r4_2%></td>
-      <td><%= @fight.score_2.r4_1%></td>
-      <td><%= @fight.score_2.r4_2%></td>
-      <td><%= @fight.score_3.r4_1%></td>
-      <td><%= @fight.score_3.r4_2%></td>
+      <% if @fight.judge_1 %>
+        <td><%= @fight.score_1.r4_1%></td>
+        <td><%= @fight.score_1.r4_2%></td>
+      <%end%>
+      <% if @fight.judge_2 %>
+        <td><%= @fight.score_2.r4_1%></td>
+        <td><%= @fight.score_2.r4_2%></td>
+      <%end%>
+      <% if @fight.judge_3 %>
+        <td><%= @fight.score_3.r4_1%></td>
+        <td><%= @fight.score_3.r4_2%></td>
+      <%end%>
     </tr>
     <tr>
       <th scope="row"> 5 </th>
-      <td><%= @fight.score_1.r5_1%></td>
-      <td><%= @fight.score_1.r5_2%></td>
-      <td><%= @fight.score_2.r5_1%></td>
-      <td><%= @fight.score_2.r5_2%></td>
-      <td><%= @fight.score_3.r5_1%></td>
-      <td><%= @fight.score_3.r5_2%></td>
+      <% if @fight.judge_1 %>
+        <td><%= @fight.score_1.r5_1%></td>
+        <td><%= @fight.score_1.r5_2%></td>
+      <%end%>
+      <% if @fight.judge_2 %>
+        <td><%= @fight.score_2.r5_1%></td>
+        <td><%= @fight.score_2.r5_2%></td>
+      <%end%>
+      <% if @fight.judge_3 %>
+        <td><%= @fight.score_3.r5_1%></td>
+        <td><%= @fight.score_3.r5_2%></td>
+      <%end%>
     </tr>
     <tr>
       <th scope="row"> Total </th>
-      <td><%= @fight.score_1.t1%></td>
-      <td><%= @fight.score_1.t2%></td>
-      <td><%= @fight.score_2.t1%></td>
-      <td><%= @fight.score_2.t2%></td>
-      <td><%= @fight.score_3.t1%></td>
-      <td><%= @fight.score_3.t2%></td>
+      <% if @fight.judge_1 %>
+        <td><%= @fight.score_1.t1%></td>
+        <td><%= @fight.score_1.t2%></td>
+      <%end%>
+      <% if @fight.judge_2 %>
+        <td><%= @fight.score_2.t1%></td>
+        <td><%= @fight.score_2.t2%></td>
+      <%end%>
+      <% if @fight.judge_3 %>
+        <td><%= @fight.score_3.t1%></td>
+        <td><%= @fight.score_3.t2%></td>
+      <%end%>
     </tr>
     </tbody>
   </table>
-
 
 </div>
 
