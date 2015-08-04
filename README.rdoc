@@ -23,33 +23,33 @@ This README would normally document whatever steps are necessary to get the
 application up and running.
 
 To Do:
-* Implement Following resources:
-_ fightcards
-_ fighters
+Implement Following resources:
+- fightcards
+- fighters
 - scorecards
 - judges
 
-* Further implement models to ensure database calls are properly implemented
+Further implement models to ensure database calls are properly implemented
 
-* Add protections for data forms
+Add protections for data forms
 - Proper ranges
 - Handle empty fields
 
-* Add input for user scoring of live events
+Add input for user scoring of live events
 - Sign-in required
 
-* Deploy on rasperberry-pi home server
+Deploy on rasperberry-pi home server
 - Obtain domain name
 - set-up port forwarding
 - Use Production application server
 
-* Finish writing ruby script that web scrapes Fight metric
+Finish writing ruby script that web scrapes Fight metric
 - Get UFC fight cards
 - Get fights from each card
 - Get fighters at each card
 - Get round by round stats from each fighter in each fight
 
-* Web scrape http://mmadecisions.com/
+Web scrape http://mmadecisions.com/
 - Obtain judge round by round scores
 - Map scorecards to fights
 
