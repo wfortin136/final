@@ -22,24 +22,55 @@ Below are the details of environment
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
-Things you may want to cover:
+To Do:
+* Implement Following resources:
+- fightcards
+- fighters
+- scorecards
+- judges
+
+* Further implement models to ensure database calls are properly implemented
+
+* Add protections for data forms
+- Proper ranges
+- Handle empty fields
+
+* Add input for user scoring of live events
+- Sign-in required
+
+* Deploy on rasperberry-pi home server
+- Obtain domain name
+- set-up port forwarding
+- Use Production application server
+
+* Finish writing ruby script that web scrapes Fight metric
+- Get UFC fight cards
+- Get fights from each card
+- Get fighters at each card
+- Get round by round stats from each fighter in each fight
+
+* Web scrape http://mmadecisions.com/
+- Obtain judge round by round scores
+- Map scorecards to fights
+
+Environment:
 
 * Ruby version
-<p>**ruby 2.2.2p95</p>
-**rails 4.1.8
+- ruby 2.2.2p95
+- rails 4.1.8
 * System dependencies
 
 * Configuration
-**bundle install
+- bundle install
 
 * Database creation
-**rake db:migrate
+- rake db:migrate
 
 * Database initialization
-**rake db:seed
+- rake db:seed
 
 * How to run the test suite
-**rails server
+- rails server
 
 * Services (job queues, cache servers, search engines, etc.)
 
