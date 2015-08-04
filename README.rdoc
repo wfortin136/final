@@ -6,7 +6,8 @@ implement those other sources at a minimum, to support fights. While I have not
 gone through full testing with all variations of how the fights resource will 
 interact with other resources, preliminary tests show the full set of RESTful
 commands are working properly. As an example, populating a scorecard for a new
-fight is not included yet.
+fight is not included yet. Also, there are no protections on the input fields.
+Leaving some fields blank or putting improper data can still cause an error.
 
 Additionally, there are seeds.rb and models.yml files. For now, the seeds.rb
 file has data manually entered for initial testing. There is an additional
