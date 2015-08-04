@@ -38,13 +38,15 @@ class FightsController < ApplicationController
   def update
     fight = Fight.find_by(:id => params["id"])
     fight.fightcard_id = params[:fightcard_id]
-    #fight.fighter_1.id = params[:fighter1_id]
-    #fight.fighter_2.id = params[:fighter2_id]
+    scorecard= Scorecard.find_by(:id =>fight.scorecard_id)
+    scorecard.fighter_1_id = params[:fighter1_id]
+    scorecard.fighter_2_id = params[:fighter2_id]
     fight.fight_num = params[:fight_num]
     fight.card_level= params[:card_level]
     fight.weightclass= params[:weightclass]
     fight.method = params[:method]
-   
+  
+    scorecard.save
     fight.save
     redirect_to root_url
   end
