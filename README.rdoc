@@ -17,7 +17,7 @@ for data, that will get populated into the db.
 And finally, while some very initial CSS formatting has been used, the front-end
 has not been implemented. So visual formatting is far from the end state.
 ---
-To Do:
+===To Do:
 - Implement Following resources:
 1) fightcards
 2) fighters
@@ -48,7 +48,7 @@ To Do:
 1) Obtain judge round by round scores
 2) Map scorecards to fights
 ---
-Environment:
+===Environment:
 
 - Ruby version
 1) ruby 2.2.2p95
