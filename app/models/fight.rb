@@ -35,4 +35,8 @@ class Fight < ActiveRecord::Base
       format('%02d', (self.fighttime - self.round*60*5 - self.roundminutes*60))
     end
   end
+
+  def fighttime_db(rounds, minutes, seconds)
+    self.fighttime = rounds*60*5 + minutes*60 + seconds
+  end
 end
