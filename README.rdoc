@@ -24,7 +24,7 @@ application up and running.
 
 To Do:
 * Implement Following resources:
- - fightcards
+*- fightcards
 - fighters
 - scorecards
 - judges
