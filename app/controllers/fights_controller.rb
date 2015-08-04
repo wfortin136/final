@@ -7,7 +7,6 @@ class FightsController < ApplicationController
   def create
     @fight = Fight.new
     scorecard = Scorecard.new
-    puts scorecard.id
     scorecard.save
     
     @fight.scorecard_id = scorecard.id
@@ -51,9 +50,9 @@ class FightsController < ApplicationController
   end
 
   def destroy
-    #fight = Fight.find_by(:id => params["id"])
-    #fight.delete
-    #redirect_to "/movies"
+    fight = Fight.find_by(:id => params["id"])
+    fight.delete
+    redirect_to "/fights"
   end
   
   def new

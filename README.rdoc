@@ -1,21 +1,42 @@
 == README
 
+Currently, I have implemented the fights as the full RESTful resource. It
+is tightly integrated with the other resources, so I attempted to implement
+those other sources at a minimum, to support fights. While I have not gone
+through full testing with all variations of how the fights resource will be 
+interact with other resources, preliminary tests show the full set of RESTful
+commands are working properly.
+
+Additionally, there are seeds.rb and models.yml files. For now, the seeds.rb
+file has data manually entered for initial testing. There is an additional
+parse file that is beginnng to scrape an external webpage for data, that will
+get populated into the db.
+
+And finally, while some very initial CSS formatting has been used, the front-end
+has not been implemented. So visual formatting is far from the end state.
+
+Below are the details of environment
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
 Things you may want to cover:
 
 * Ruby version
+ruby 2.2.2p95
 
 * System dependencies
 
 * Configuration
 
 * Database creation
+rake db:migrate
 
 * Database initialization
+rake db:seed
 
 * How to run the test suite
+rails server
 
 * Services (job queues, cache servers, search engines, etc.)
 
