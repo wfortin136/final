@@ -1,7 +1,7 @@
 == README
 
 Currently, I have implemented "fights" as the full RESTful resource. It
-is tightly integrated with the other resources, so for now I attempted to i
+is tightly integrated with the other resources, so for now I attempted to
 implement those other sources at a minimum, to support fights. While I have not
 gone through full testing with all variations of how the fights resource will 
 interact with other resources, preliminary tests show the full set of RESTful
@@ -16,61 +16,57 @@ for data, that will get populated into the db.
 
 And finally, while some very initial CSS formatting has been used, the front-end
 has not been implemented. So visual formatting is far from the end state.
-
-Below are the details of environment
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
+---
 To Do:
-Implement Following resources:
-- fightcards
-- fighters
-- scorecards
-- judges
+- Implement Following resources:
+1) fightcards
+2) fighters
+3) scorecards
+4) judges
 
-Further implement models to ensure database calls are properly implemented
+- Further implement models to ensure database calls are properly implemented
 
-Add protections for data forms
-- Proper ranges
-- Handle empty fields
+- Add protections for data forms
+1) Proper ranges
+2) Handle empty fields
 
-Add input for user scoring of live events
-- Sign-in required
+- Add input for user scoring of live events
+1) Sign-in required
 
-Deploy on rasperberry-pi home server
-- Obtain domain name
-- set-up port forwarding
-- Use Production application server
+- Deploy on rasperberry-pi home server
+1) Obtain domain name
+2) set-up port forwarding
+3) Use Production application server
 
-Finish writing ruby script that web scrapes Fight metric
-- Get UFC fight cards
-- Get fights from each card
-- Get fighters at each card
-- Get round by round stats from each fighter in each fight
+- Finish writing ruby script that web scrapes Fight metric
+1) Get UFC fight cards
+2) Get fights from each card
+3) Get fighters at each card
+4) Get round by round stats from each fighter in each fight
 
-Web scrape http://mmadecisions.com/
-- Obtain judge round by round scores
-- Map scorecards to fights
-
+- Web scrape http://mmadecisions.com/
+1) Obtain judge round by round scores
+2) Map scorecards to fights
+---
 Environment:
 
-* Ruby version
-- ruby 2.2.2p95
-- rails 4.1.8
-* System dependencies
+- Ruby version
+1) ruby 2.2.2p95
+2) rails 4.1.8
+
+- System dependencies
 
 * Configuration
-- bundle install
+1) bundle install
 
 * Database creation
-- rake db:migrate
+1) rake db:migrate
 
 * Database initialization
-- rake db:seed
+1) rake db:seed
 
 * How to run the test suite
-- rails server
+1) rails server
 
 * Services (job queues, cache servers, search engines, etc.)
 
