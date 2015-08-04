@@ -18,7 +18,11 @@
     <% @fights.each do |fight|%>
       <tr>
         <td>
-          <a class="btn" href="/fights/<%=fight.id%>">Select</button>
+          <!--<a class="btn" href="/fights/<%=fight.id%>">Select</button>-->
+          <%= link_to "Select", "/fights/#{fight.id}" %>
+          -
+          <%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %>
+          <!--<a class="btn"><%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %></button>-->
         </td>
         <td>
           <%# Fight%>
