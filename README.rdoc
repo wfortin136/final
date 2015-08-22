@@ -1,5 +1,31 @@
 == README
 
+Rubric: 
+- At least 5 database-backed models, which must consist of at least 4 domain models, plus one User model
+Models:
+- User
+
+- Weightclass
+- Fight
+- Fighter
+- Judge
+- Fightcard
+- Scorecard
+- Judgescore
+
+- A least 1 many-to-many model association
+many-to-many
+- Fightcard to Weightclass through fight
+- To test
+- :run rails console
+- :Fightcard.first.weightclasses
+- :wc = Weightclass.find_by(:name => "Bantomweight")
+- :wc.fightcards
+
+Proper association methods 
+Model validations as necessary
+A proper database seeds file
+
 Currently, I have implemented "fights" as the full RESTful resource. It
 is tightly integrated with the other resources, so for now I attempted to
 implement those other sources at a minimum, to support fights. While I have not
@@ -18,20 +44,7 @@ And finally, while some very initial CSS formatting has been used, the front-end
 has not been implemented. So visual formatting is far from the end state.
 ---
 ===To Do:
-- Implement Following resources:
-1) fightcards
-2) fighters
-3) scorecards
-4) judges
-
-- Further implement models to ensure database calls are properly implemented
-
-- Add protections for data forms
-1) Proper ranges
-2) Handle empty fields
-
 - Add input for user scoring of live events
-1) Sign-in required
 
 - Deploy on rasperberry-pi home server
 1) Obtain domain name
