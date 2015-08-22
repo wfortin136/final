@@ -1,23 +1,25 @@
 <h1> Fightcards </h1>
-<h4> <%= link_to "[New Fightcard]", "/fightcards/new"%> </h4>
+  <% if session[:user_id] %>
+    <h4><%= link_to "[New Fightcard]", "/fightcards/new"%> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Add Fightcard</h4>
+  <% end %>
 <table class='table table-striped'>
   <thead>
     <tr>
       <th width="5%"></th>
       <th width="10%">Promotion</th>
-      <th width="37%">Event Name</th>
+      <th width="32%">Event Name</th>
       <th width="8%">Date</th>
       <th width="15%">Location</th>
       <th width="25%">Headliner</th>
+      <th width="5%"></th>
     </tr>
   <tbody>
     <% @fightcards.each do |fc|%>
       <tr>
         <td>
-          <!--<a class="btn" href="/fightcards/<%=fc.id%>">Select</button>-->
-          <%= link_to "Select", "/fightcards/#{fc.id}" %>
-          <%= link_to "Delete", "/fightcards/#{fc.id}", :method => "delete" %>
-          <!--<a class="btn"><%= link_to "Delete", "/fightcards/#{fc.id}", :method => "delete" %></button>-->
+          <a class="btn btn-xs btn-primary pull-left" href="/fightcards/<%=fc.id%>">Select</a>
         </td>
         <td>
           <%# Promotion%>
@@ -38,6 +40,11 @@
         <td>
           <%# Headliner%>
           <%= fc.headliner%>
+        </td>
+        <td>
+          <% if session[:user_id] %>
+            <a class="btn btn-xs btn-success pull-left" data-method="delete" href="/fightcards/<%=fc.id%>">Delete</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

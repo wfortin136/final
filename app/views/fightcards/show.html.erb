@@ -1,6 +1,10 @@
 <div class="fightcard_summary">
   <h1><%= @fightcard.name%>  </h1>
-  <h4><%= link_to "[Edit]", "/fightcards/#{@fightcard.id}/edit" %> </h4>
+    <% if session[:user_id] %>
+      <h4><%= link_to "[Edit]", "/fightcards/#{@fightcard.id}/edit"%> </h4>
+    <% else %>
+      <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Change Fightcard</h4>
+    <% end %>
   <table>
     <tbody>
       <tr> 
@@ -19,7 +23,9 @@
   </table>
 </div>
 
-<h4><%= link_to "[Add Fight]", "/fights/new?fcid=#{@fightcard.id}" %> </h4>
+<% if session[:user_id] %>
+  <h4><%= link_to "[Add Fight]", "/fights/new?fcid=#{@fightcard.id}" %> </h4>
+<%end %>  
 <div class="fightcard_fights">
   <table class='table table-striped'>
     <thead>
@@ -48,7 +54,7 @@
         </td>
         <td>
           <%# Weightclass%>
-          <%= fight.weightclass%>
+          <%= fight.weightclass.name%>
         </td>
         <td>
           <%# Championship%>

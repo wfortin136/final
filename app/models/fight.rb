@@ -1,5 +1,6 @@
 class Fight < ActiveRecord::Base
   
+  belongs_to :weightclass
   belongs_to :fightcard, class_name: "Fightcard"#, foreign_key: :fightcard_id
 
   belongs_to :scorecard, class_name: "Scorecard", foreign_key: :scorecard_id, primary_key: :id

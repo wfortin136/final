@@ -1,5 +1,4 @@
 <h1> Scorecards </h1>
-<!--<h4> <%= link_to "[New Scorecard]", "/scorecards/new"%> </h4>-->
 <table class='table table-striped'>
   <thead>
     <tr>
@@ -7,9 +6,10 @@
       <th width="23%">Fight</th>
       <th width="7%">Event</th>
       <th width="7%">Date</th>
-      <th width="8%">Winner</th>
-      <th width="15%">Judges</th>
-      <th width="19%">Score Deviation</th>
+      <th width="10%">Winner</th>
+      <th width="18%">Judges</th>
+      <th width="10%">Score Deviation</th>
+      <th width="4%"></th>
     </tr>
   <tbody>
     <% @scorecards.each do |scorecard|%>
@@ -17,8 +17,7 @@
       <%puts fight%>
       <tr>
         <td>
-          <%= link_to "Select", "/scorecards/#{scorecard.id}" %>
-          <%= link_to "Clear", "/scorecards/#{scorecard.id}", :method => "delete" %>
+          <a class="btn btn-xs btn-primary pull-left" href="/scorecards/<%=scorecard.id%>">Select</a>
         </td>
         <td>
           <%# Fight%>
@@ -55,6 +54,11 @@
         <td>
           <%# Score Deviation%>
           <%= %>
+        </td>
+        <td>
+          <% if session[:user_id] %>
+            <a class="btn btn-xs btn-success pull-left" data-method="delete" href="/scorecard/<%=scorecard.id%>">Clear</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

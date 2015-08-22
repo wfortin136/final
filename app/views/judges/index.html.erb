@@ -1,5 +1,9 @@
 <h1> Judges </h1>
-<h4> <%= link_to "[New Judge]", "/judges/new"%> </h4>
+  <% if @user %>
+    <h4> <%= link_to "[New Judge]", "/judges/new"%> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Add a Judge</h4>
+  <% end %>
 <table class='table table-striped'>
   <thead>
     <tr>
@@ -7,13 +11,13 @@
       <th width="23%">Judge</th>
       <th width="7%">Fights Judged</th>
       <th width="15%">Deviation</th>
+      <th width="4%"></th>
     </tr>
   <tbody>
     <% @judges.each do |judge|%>
       <tr>
         <td>
-          <%= link_to "Select", "/judges/#{judge.id}" %>
-          <%= link_to "Delete", "/judges/#{judge.id}", :method => "delete" %>
+          <a class="btn btn-xs btn-primary pull-left" href="/judges/<%=judge.id%>">Select</a>
         </td>
         <td>
           <%# Judge%>
@@ -26,6 +30,11 @@
         <td>
           <%# Deviation%>
           <%= %>
+        </td>
+        <td>
+          <% if @useradmin %>
+            <a class="btn btn-xs btn-success pull-left" data-method="delete" href="/judges/<%=judge.id%>">Delete</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

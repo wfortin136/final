@@ -12,6 +12,9 @@ class Scorecard < ActiveRecord::Base
   #has_one :judge_1, class_name: "Judge", foreign_key: :id, primary_key: :judge_id, through: :score_1
   #belongs_to :judge_2, class_name: "Judge", foreign_key: :id, primary_key: :judge_id, through: :score_2
   #belongs_to :judge_3, class_name: "Judge", foreign_key: :id, primary_key: :judge_id, through: :score_3
+  
+  validates :fighter_1_id, presence: { message: "2 Fighters are needed"}
+  validates :fighter_2_id, presence: { message: "2 Fighters are Needed"}
 
   def judge_1
     if self.score_1

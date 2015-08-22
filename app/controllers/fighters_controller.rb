@@ -2,6 +2,12 @@ class FightersController < ApplicationController
   
   def index
     @fighters = Fighter.all
+    @user = User.find_by(:id => session[:user_id]) 
+    if @user
+      @useradmin = @user.admin
+    else
+      @useradmin = nil
+    end
   end
 
   def create

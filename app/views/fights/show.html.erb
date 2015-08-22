@@ -1,6 +1,10 @@
 <div class="fight">
   <h1><%= @fight.fighter_1.name%> vs. <%= @fight.fighter_2.name%>  </h1>
-  <h4><%= link_to "[Edit]", "/fights/#{@fight.id}/edit" %> </h4>
+  <% if session[:user_id] %>
+    <h4><%= link_to "[Edit]", "/fights/#{@fight.id}/edit" %> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Edit</h4>
+  <% end %>
   <table class='table table-striped'>
     <thead>
       <tr>
@@ -37,7 +41,9 @@
     <thead>
       <tr>
         <th colspan="6"> <h3> Scorecard </h3>
-        <h5><%= link_to "[Edit Scorecard]", "/scorecards/#{@fight.scorecard.id}/edit" %> </h5>
+        <% if session[:user_id] %>
+          <h5><%= link_to "[Edit Scorecard]", "/scorecards/#{@fight.scorecard.id}/edit" %> </h5>
+        <% end %>
         </th>
       </tr>
       <tr>

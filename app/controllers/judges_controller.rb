@@ -2,6 +2,12 @@ class JudgesController < ApplicationController
   
   def index
     @judges = Judge.all
+    @user = User.find_by(:id => session[:user_id]) 
+    if @user
+      @useradmin = @user.admin
+    else
+      @useradmin = nil
+    end
   end
 
   def create

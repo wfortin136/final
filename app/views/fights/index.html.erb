@@ -1,5 +1,9 @@
 <h1> Fights </h1>
-<h4> <%= link_to "[New Fight]", "/fights/new"%> </h4>
+  <% if session[:user_id] %>
+    <h4> <%= link_to "[New Fight]", "/fights/new"%> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Add Fightcard</h4>
+  <% end %>
 <table class='table table-striped'>
   <thead>
     <tr>
@@ -7,21 +11,18 @@
       <th width="23%">Fight</th>
       <th width="7%">Event</th>
       <th width="15%">Location</th>
-      <th width="7%">Date</th>
+      <th width="8%">Date</th>
       <th width="10%">Weightclass</th>
-      <th width="8%">Championship</th>
-      <!--<th width="5%">Rounds Scheduled</th>-->
+      <th width="4%">Title</th>
       <th width="19%">Result</th>
-      <th width="8%">Time</th>
+      <th width="7%">Time</th>
+      <th width="4%"></th>
     </tr>
   <tbody>
     <% @fights.each do |fight|%>
       <tr>
         <td>
-          <!--<a class="btn" href="/fights/<%=fight.id%>">Select</button>-->
-          <%= link_to "Select", "/fights/#{fight.id}" %>
-          <%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %>
-          <!--<a class="btn"><%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %></button>-->
+          <a class="btn btn-xs btn-primary pull-left" href="/fights/<%=fight.id%>">Select</a>
         </td>
         <td>
           <%# Fight%>
@@ -47,7 +48,7 @@
         </td>
         <td>
           <%# Weightclass%>
-          <%= fight.weightclass%>
+          <%= fight.weightclass.name%>
         </td>
         <td>
           <%# Championship%>
@@ -63,7 +64,12 @@
         </td>
         <td>
           <%# fighttime%>
-          R<%= fight.round %> <%= fight.roundminutes%>: <%= fight.roundsecs%>
+          R<%= fight.round %> <%= fight.roundminutes%>:<%= fight.roundsecs%>
+        </td>
+        <td>
+          <% if session[:user_id] %>
+            <a class="btn btn-xs btn-success pull-left" data-method="delete" href="/fights/<%=fight.id%>">Delete</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

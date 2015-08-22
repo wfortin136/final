@@ -1,7 +1,12 @@
 class FightsController < ApplicationController
   
   def index
-    @fights = Fight.all
+  
+    if params["keyword"].present?
+      term = params["keyword"].strip
+    else
+      @fights = Fight.all
+    end
   end
 
   def create
@@ -24,7 +29,7 @@ class FightsController < ApplicationController
     scorecard.fighter_2_id = params[:fighter2_id]
     @fight.fight_num = params[:fight_num]
     @fight.card_level= params[:card_level]
-    @fight.weightclass= params[:weightclass]
+    @fight.weightclass_id= params[:weightclass]
     @fight.method = params[:method]
     @fight.fighttime_db(params[:round].to_i, params[:min].to_i, params[:sec].to_i)
     scorecard.save
@@ -53,7 +58,7 @@ class FightsController < ApplicationController
     scorecard.fighter_2_id = params[:fighter2_id]
     fight.fight_num = params[:fight_num]
     fight.card_level= params[:card_level]
-    fight.weightclass= params[:weightclass]
+    fight.weightclass_id= params[:weightclass]
     fight.method = params[:method]
   
     scorecard.save

@@ -1,5 +1,12 @@
 <h1> Enter New Fightcard </h1>
 
+<% if @fightcard.errors.any? %>
+  <ul class="list-unstyled text-danger">
+    <% @fightcard.errors.full_messages.each do |msg| %>
+      <li><strong><%= msg %></strong></li>
+    <% end %>
+  </ul>
+<% end %>
 <%= form_tag "/fightcards/" do%>
   <div>
     <label> Fightcard </label>

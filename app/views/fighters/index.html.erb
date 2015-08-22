@@ -1,21 +1,25 @@
 <h1> Fighters </h1>
-<h4> <%= link_to "[New Fighter]", "/fighters/new"%> </h4>
+  <% if @user %>
+    <h4> <%= link_to "[New Fighter]", "/fighters/new"%> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Add a Fighter</h4>
+  <% end %>
 <table class='table table-striped'>
   <thead>
     <tr>
-      <th width="4%"></th>
+      <th width="5%"></th>
       <th width="23%">Fighter</th>
       <th width="7%">Wins</th>
-      <th width="15%">Losses</th>
-      <th width="15%">Draws</th>
-      <th width="15%">No Contests</th>
+      <th width="7%">Losses</th>
+      <th width="7%">Draws</th>
+      <th width="7%">No Contests</th>
+      <th width="5%"></th>
     </tr>
   <tbody>
     <% @fighters.each do |fighter|%>
       <tr>
         <td>
-          <%= link_to "Select", "/fighters/#{fighter.id}" %>
-          <%#= link_to "Delete", "/fighters/#{fighter.id}", :method => "delete" %>
+          <a class="btn btn-xs btn-primary pull-left" href="/fighters/<%=fighter.id%>">Select</a>
         </td>
         <td>
           <%# Fighter%>
@@ -36,6 +40,11 @@
         <td>
           <%# No Contests%>
           <%= fighter.nc%>
+        </td>
+        <td>
+          <% if @useradmin %>
+            <a class="btn btn-xs btn-success pull-left" data-method="delete" href="/fighters/<%=fighter.id%>">Delete</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

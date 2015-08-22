@@ -1,5 +1,13 @@
 <h1> Enter a New Judge </h1>
 
+<% if @judge.errors.any? %>
+  <ul class="list-unstyled text-danger">
+    <% @judge.errors.full_messages.each do |msg| %>
+      <li><strong><%= msg %></strong></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag "/judges/" do%>
   <div>
     <label> Name </label>

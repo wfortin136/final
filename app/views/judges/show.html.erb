@@ -1,16 +1,21 @@
 <div class="Judge">
   <h1><%= @judge.name%>  </h1>
-  <h4><%= link_to "[Edit]", "/judges/#{@judge.id}/edit" %> </h4>
-<table>
+  <% if session[:user_id] %>
+    <h4><%= link_to "[Edit]", "/judges/#{@judge.id}/edit" %> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Edit</h4>
+  <% end %>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th width="4%"></th>
       <th width="30%">Fight</th>
       <th width="10%">Weightclass</th>
-      <th width="8%">Championship</th>
+      <th width="4%">Title</th>
       <th width="13%">Winner</th>
       <th width="20%">Scored Winner</th>
       <th width="10%"> Score Deviation</th>
+      <th width="4%"></th>
     </tr>
   </thead>  
   <tbody>
@@ -18,10 +23,7 @@
       <% fight = js.scorecard.fight%>
       <tr>
         <td>
-          <!--<a class="btn" href="/fights/<%=fight.id%>">Select</button>-->
-          <%= link_to "Select", "/fights/#{fight.id}" %>
-          <%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %>
-          <!--<a class="btn"><%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %></button>-->
+          <a class="btn btn-xs btn-primary pull-left" href="/fights/<%=fight.id%>">Select</a>
         </td>
         <td>
           <%# Fight%>
@@ -29,7 +31,7 @@
         </td>
         <td>
           <%# Weightclass%>
-          <%= fight.weightclass%>
+          <%= fight.weightclass.name%>
         </td>
         <td>
           <%# Championship%>
@@ -46,6 +48,11 @@
         <td>
           <%# score deviation%>
           <%= %>
+        </td>
+        <td>
+          <% if session[:user_id] %>
+            <a class="btn btn-xs btn-primary pull-left" data-method="delete" href="/fights/<%=fight.id%>">Delete</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

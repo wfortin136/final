@@ -1,5 +1,13 @@
 <h1> Enter New Fighter </h1>
 
+<% if @fighter.errors.any? %>
+  <ul class="list-unstyled text-danger">
+    <% @fighter.errors.full_messages.each do |msg| %>
+      <li><strong><%= msg %></strong></li>
+    <% end %>
+  </ul>
+<% end %>
+
 <%= form_tag "/fighters/" do%>
   <div>
     <label> Name </label>

@@ -1,3 +1,16 @@
+Weightclass.delete_all
+fly = Weightclass.create(name: "Flyweight", weight: 125)
+bant = Weightclass.create(name: "Bantomweight", weight: 135)
+feat = Weightclass.create(name: "Featherweight", weight: 145)
+light = Weightclass.create(name: "Lightweight", weight: 155)
+welt = Weightclass.create(name: "Welterweight", weight: 170)
+mid = Weightclass.create(name: "Middleweight", weight: 185)
+lheavy = Weightclass.create(name: "Light Heavyweight", weight: 205)
+heavy = Weightclass.create(name: "Heavyweight", weight: 265)
+
+User.delete_all
+User.create(name: "admin", email: "admin@example.com", admin: true, password: "just_to_show")
+
 Judge.delete_all
 chris_lee = Judge.create(name: "Chris Lee")
 tony_weeks = Judge.create(name: "Tony Weeks")
@@ -37,9 +50,9 @@ sc3 = Scorecard.create(fighter_1_id: mizugaki.id, fighter_2_id: f_rivera.id, j_1
 
 
 Fight.delete_all
-Fight.create(fightcard_id: fc1.id, fight_num: 4, weightclass: "Bantomweight", championship: 0, card_level:1, rounds_sch: 3, fighttime: 900, method: "Unanimous Decision", scorecard_id: sc3.id)
-Fight.create(fightcard_id: fc1.id, fight_num: 1, card_level:1, weightclass: "Bantomweight", championship: 1, rounds_sch: 5, fighttime: 1346, method: "TKO (head kick and punches)", scorecard_id: sc1.id)
-Fight.create(fightcard_id: fc2.id, fight_num: 1, weightclass: "Welterweight", championship: 1, card_level:1, rounds_sch: 5, fighttime: 1500, method: "Split Decision", scorecard_id: sc2.id)
+Fight.create(fightcard_id: fc1.id, fight_num: 4, weightclass_id: bant.id, championship: 0, card_level:1, rounds_sch: 3, fighttime: 900, method: "Unanimous Decision", scorecard_id: sc3.id)
+Fight.create(fightcard_id: fc1.id, fight_num: 1, card_level:1, weightclass_id: bant.id, championship: 1, rounds_sch: 5, fighttime: 1346, method: "TKO (head kick and punches)", scorecard_id: sc1.id)
+Fight.create(fightcard_id: fc2.id, fight_num: 1, weightclass_id: welt.id, championship: 1, card_level:1, rounds_sch: 5, fighttime: 1500, method: "Split Decision", scorecard_id: sc2.id)
 
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).

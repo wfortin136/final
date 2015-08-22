@@ -14,15 +14,12 @@
 ActiveRecord::Schema.define(version: 0) do
 
   create_table "fightcards", force: :cascade do |t|
-    t.string  "name"
-    t.string  "city"
-    t.string  "state"
-    t.string  "country"
-    t.integer "year"
-    t.integer "day"
-    t.integer "month"
-    t.string  "promotion"
-    t.date    "date"
+    t.string "name"
+    t.string "city"
+    t.string "state"
+    t.string "country"
+    t.string "promotion"
+    t.date   "date"
   end
 
   create_table "fighters", force: :cascade do |t|
@@ -42,12 +39,13 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "scorecard_id"
     t.integer "fightcard_id"
     t.integer "fighttime"
-    t.string  "weightclass"
     t.integer "championship"
+    t.integer "weightclass_id"
   end
 
   add_index "fights", ["fightcard_id"], name: "index_fights_on_fightcard_id"
   add_index "fights", ["scorecard_id"], name: "index_fights_on_scorecard_id"
+  add_index "fights", ["weightclass_id"], name: "index_fights_on_weightclass_id"
 
   create_table "judges", force: :cascade do |t|
     t.string "name"
@@ -91,6 +89,11 @@ ActiveRecord::Schema.define(version: 0) do
     t.string  "email"
     t.boolean "admin",           default: false
     t.string  "password_digest"
+  end
+
+  create_table "weightclasses", force: :cascade do |t|
+    t.string  "name"
+    t.integer "weight"
   end
 
 end

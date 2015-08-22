@@ -4,10 +4,14 @@ User
   admin: boolean(false)
   password_digest: string
 
+Weightclass
+  name: string
+  weight: integer
+
 Fight
   fightcard_id: integer
   fight_num: integer
-  weightclass: string
+  weightclass_id: integer
   championship: integer
   card_level: integer
   rounds_sch: integer
@@ -33,9 +37,6 @@ Fightcard
   state: string
   country: string
   date: date
-  year: integer
-  day: integer
-  month: integer
 
 Scorecard
   fighter_1_id: integer

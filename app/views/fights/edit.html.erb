@@ -42,7 +42,15 @@
 
   <div>
     <label> Weightclass </label>
-    <input type="text" name="weightclass" value="<%= @fight.weightclass%>">
+    <select name="weightclass">
+      <% Weightclass.all.each do |wc| %>
+        <% if @fight.weightclass == wc %>
+          <option value="<%= wc.id %>" selected><%=wc.name %></option>
+        <% else %>
+          <option value="<%= wc.id %>"><%=wc.name %></option>
+        <% end %>
+      <% end %>
+    </select>
   </div>
   
   <div>

@@ -33,7 +33,11 @@
 
   <div>
     <label> Weightclass </label>
-    <input type="text" name="weightclass" value="<%= @fight.weightclass%>">
+    <select name="weightclass">
+      <% Weightclass.all.each do |wc| %>
+        <option value="<%= wc.id %>"><%=wc.name %></option>
+      <% end %>
+    </select>
   </div>
   
   <div>

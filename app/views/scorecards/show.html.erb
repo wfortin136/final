@@ -1,6 +1,10 @@
 <div class="scorecard">
   <h1><%= @scorecard.fighter_1.name%> vs. <%= @scorecard.fighter_2.name%>  </h1>
-  <h4><%= link_to "[Edit]", "/scorecards/#{@scorecard.id}/edit" %> </h4>
+  <% if session[:user_id] %>
+    <h4><%= link_to "[Edit]", "/scorecards/#{@scorecard.id}/edit" %> </h4>
+  <% else %>
+    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Edit</h4>
+  <% end %>
 
   <table>
     <thead>
@@ -94,11 +98,17 @@
   </table>
 
   <h3>Image of Original Scorecard </h3>
+
+  
   <% if @scorecard.pic %>
-    <h4><%= link_to "[Edit Image]", "/scorecards/#{@scorecard.id}/edit" %> </h4>
+    <% if session[:user_id] %>
+      <h4><%= link_to "[Edit Image]", "/scorecards/#{@scorecard.id}/edit" %> </h4>
+    <% end%>  
     <%= image_tag("/assets/#{@scorecard.pic}", height:'400')%>
   <% else %>
-    <h4><%= link_to "[Add Image]", "/scorecards/#{@scorecard.id}/edit" %> </h4>
+    <% if session[:user_id] %>
+      <h4><%= link_to "[Add Image]", "/scorecards/#{@scorecard.id}/edit" %> </h4>
+    <% end%>  
   <% end %>
 </div>
 
