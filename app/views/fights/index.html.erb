@@ -29,15 +29,21 @@
         </td>
         <td>
           <%# Event%>
-          <%= link_to fight.fightcard.name, "/fightcards/#{fight.fightcard.id}"%>
+          <% if fight.fightcard%>
+            <%= link_to fight.fightcard.name, "/fightcards/#{fight.fightcard.id}"%>
+          <%end %>
         </td>
         <td>
           <%# Location%>
-          <%= fight.fightcard.city%>, <%= fight.fightcard.state%>, <%=fight.fightcard.country%>
+          <% if fight.fightcard%>
+            <%= fight.fightcard.city%>, <%= fight.fightcard.state%>, <%=fight.fightcard.country%>
+          <%end %>
         </td>
         <td>
           <%# Date%>
-          <%= fight.fightcard.month%>-<%=fight.fightcard.day%>-<%= fight.fightcard.year%>
+          <% if fight.fightcard%>
+            <%= fight.fightcard.date%>
+          <%end %>
         </td>
         <td>
           <%# Weightclass%>

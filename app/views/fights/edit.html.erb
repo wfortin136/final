@@ -5,7 +5,11 @@
     <label> Fightcard </label>
     <select name="fightcard_id">
       <% Fightcard.all.each do |fc| %>
-        <option value="<%= fc.id %>"><%=fc.name %></option>
+        <% if @fightcard == fc %>
+          <option value="<%= fc.id %>" selected><%=fc.name %></option>
+        <% else %>
+          <option value="<%= fc.id %>"><%=fc.name %></option>
+        <% end %>
       <% end %>
     </select>
   </div>

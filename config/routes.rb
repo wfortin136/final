@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
 
-  root 'fights#index'
+  root 'fightcards#index'
 
+  get '/sessions/new' => 'sessions#new'
+  post '/sessions' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/account' => 'users#show'
+  
   #resources :fights
   get '/fights', controller: 'fights', action: 'index'
   post '/fights', controller: 'fights', action: 'create'
@@ -12,7 +17,11 @@ Rails.application.routes.draw do
   get 'fights/:id/edit', controller: 'fights', action: 'edit'
 
   resources :fighters
-  
+  resources :fightcards
+  resources :judges
+  resources :scorecards
+  resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

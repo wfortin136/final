@@ -1,7 +1,8 @@
 class Fight < ActiveRecord::Base
   
-  belongs_to :fightcard, class_name: "Fightcard", foreign_key: :fightcard_id
-  has_one :scorecard, class_name: "Scorecard", foreign_key: :id, primary_key: :scorecard_id
+  belongs_to :fightcard, class_name: "Fightcard"#, foreign_key: :fightcard_id
+
+  belongs_to :scorecard, class_name: "Scorecard", foreign_key: :scorecard_id, primary_key: :id
 
   has_one :fighter_1, class_name: "Fighter", foreign_key: :id, through: :scorecard 
   has_one :fighter_2, class_name: "Fighter", foreign_key: :id, through: :scorecard 
@@ -10,10 +11,35 @@ class Fight < ActiveRecord::Base
   has_one :score_2, class_name: "Judgescore", foreign_key: :id, through: :scorecard 
   has_one :score_3, class_name: "Judgescore", foreign_key: :id, through: :scorecard
 
-  has_one :judge_1, class_name: "Judge", foreign_key: :id, through: :scorecard
-  has_one :judge_2, class_name: "Judge", foreign_key: :id, through: :scorecard
-  has_one :judge_3, class_name: "Judge", foreign_key: :id, through: :scorecard
-
+  #has_one :judge_1, class_name: "Judge", foreign_key: :id, through: :scorecard
+  #has_one :judge_2, class_name: "Judge", foreign_key: :id, through: :scorecard
+  #has_one :judge_3, class_name: "Judge", foreign_key: :id, through: :scorecard
+  
+  
+  def judge_1
+    if self.score_1
+      self.score_1.judge
+    else
+      nil
+    end
+  end
+  
+  def judge_2
+    if self.score_2
+      self.score_2.judge
+    else
+      nil
+    end
+  end
+  
+  def judge_3
+    if self.score_3
+      self.score_3.judge
+    else
+      nil
+    end
+  end
+  
   def round
     (self.fighttime/(60*5)).floor
   end

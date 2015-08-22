@@ -1,0 +1,27 @@
+<div class="fighter">
+  <h1><%= @fighter.name%>  </h1>
+  <h4><%= link_to "[Edit]", "/fighters/#{@fighter.id}/edit" %> </h4>
+<table>
+  <tbody>
+    <tr> 
+      <%= image_tag(@fighter.picture, height:'400')%>
+    </tr>
+    <tr> 
+      <th scope="row" width="40%"> Wins </th>
+      <td>  <%= @fighter.wins%></td>
+    </tr>
+    <tr> 
+      <th scope="row" width="40%"> Losses </th>
+      <td>  <%= @fighter.losses%></td>
+    </tr>
+    <tr> 
+      <th scope="row" width="40%"> Draws </th>
+      <td>  <%= @fighter.draws%></td>
+    </tr>
+    <tr> 
+      <th scope="row" width="40%"> No Contests </th>
+      <td>  <%= @fighter.nc%></td>
+    </tr>
+  </tbody>
+</div>
+

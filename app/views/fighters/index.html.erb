@@ -1,0 +1,44 @@
+<h1> Fighters </h1>
+<h4> <%= link_to "[New Fighter]", "/fighters/new"%> </h4>
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th width="4%"></th>
+      <th width="23%">Fighter</th>
+      <th width="7%">Wins</th>
+      <th width="15%">Losses</th>
+      <th width="15%">Draws</th>
+      <th width="15%">No Contests</th>
+    </tr>
+  <tbody>
+    <% @fighters.each do |fighter|%>
+      <tr>
+        <td>
+          <%= link_to "Select", "/fighters/#{fighter.id}" %>
+          <%#= link_to "Delete", "/fighters/#{fighter.id}", :method => "delete" %>
+        </td>
+        <td>
+          <%# Fighter%>
+          <%= link_to fighter.name, "/fighters/#{fighter.id}"%>
+        </td>
+        <td>
+          <%# Wins%>
+          <%= fighter.wins %>
+        </td>
+        <td>
+          <%# Losses%>
+          <%= fighter.losses%>
+        </td>
+        <td>
+          <%# Draws%>
+          <%= fighter.draws%>
+        </td>
+        <td>
+          <%# No Contests%>
+          <%= fighter.nc%>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

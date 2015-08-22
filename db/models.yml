@@ -1,3 +1,9 @@
+User
+  name: string
+  email: string
+  admin: boolean(false)
+  password_digest: string
+
 Fight
   fightcard_id: integer
   fight_num: integer
@@ -16,14 +22,17 @@ Fighter
   draws: integer
   nc: integer
   picture: string
+
 Judge
   name: string
 
 Fightcard
   name: string
+  promotion: string
   city: string
   state: string
   country: string
+  date: date
   year: integer
   day: integer
   month: integer

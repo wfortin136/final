@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 0) do
     t.integer "year"
     t.integer "day"
     t.integer "month"
+    t.string  "promotion"
+    t.date    "date"
   end
 
   create_table "fighters", force: :cascade do |t|
@@ -83,5 +85,12 @@ ActiveRecord::Schema.define(version: 0) do
   add_index "scorecards", ["j_1_score_id"], name: "index_scorecards_on_j_1_score_id"
   add_index "scorecards", ["j_2_score_id"], name: "index_scorecards_on_j_2_score_id"
   add_index "scorecards", ["j_3_score_id"], name: "index_scorecards_on_j_3_score_id"
+
+  create_table "users", force: :cascade do |t|
+    t.string  "name"
+    t.string  "email"
+    t.boolean "admin",           default: false
+    t.string  "password_digest"
+  end
 
 end

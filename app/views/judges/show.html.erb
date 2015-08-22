@@ -1,0 +1,55 @@
+<div class="Judge">
+  <h1><%= @judge.name%>  </h1>
+  <h4><%= link_to "[Edit]", "/judges/#{@judge.id}/edit" %> </h4>
+<table>
+  <thead>
+    <tr>
+      <th width="4%"></th>
+      <th width="30%">Fight</th>
+      <th width="10%">Weightclass</th>
+      <th width="8%">Championship</th>
+      <th width="13%">Winner</th>
+      <th width="20%">Scored Winner</th>
+      <th width="10%"> Score Deviation</th>
+    </tr>
+  </thead>  
+  <tbody>
+    <% @judge.judgescores.each do |js|%>
+      <% fight = js.scorecard.fight%>
+      <tr>
+        <td>
+          <!--<a class="btn" href="/fights/<%=fight.id%>">Select</button>-->
+          <%= link_to "Select", "/fights/#{fight.id}" %>
+          <%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %>
+          <!--<a class="btn"><%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %></button>-->
+        </td>
+        <td>
+          <%# Fight%>
+          <%= link_to fight.fighter_1.name, "/fighters/#{fight.fighter_1.id}"%> vs. <%= link_to fight.fighter_2.name, "/fighters/#{fight.fighter_2.id}"%>
+        </td>
+        <td>
+          <%# Weightclass%>
+          <%= fight.weightclass%>
+        </td>
+        <td>
+          <%# Championship%>
+          <%= fight.championship %>
+        </td>
+        <td>
+          <%# Winner%>
+          <%= fight.fighter_1.name%>
+        </td>
+        <td>
+          <%# Scored Winner%>
+          <%=  js.winner%>
+        </td>
+        <td>
+          <%# score deviation%>
+          <%= %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+

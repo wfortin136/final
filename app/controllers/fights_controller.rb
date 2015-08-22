@@ -8,7 +8,16 @@ class FightsController < ApplicationController
     @fight = Fight.new
     scorecard = Scorecard.new
     scorecard.save
-    
+    judgescore1 = Judgescore.new
+    judgescore2 = Judgescore.new
+    judgescore3 = Judgescore.new
+    judgescore1.save
+    judgescore2.save
+    judgescore3.save
+    scorecard.j_1_score_id = judgescore1.id
+    scorecard.j_2_score_id = judgescore2.id
+    scorecard.j_3_score_id = judgescore3.id
+
     @fight.scorecard_id = scorecard.id
     @fight.fightcard_id = params[:fightcard_id]
     scorecard.fighter_1_id = params[:fighter1_id]
@@ -33,6 +42,7 @@ class FightsController < ApplicationController
   
   def edit
     @fight = Fight.find_by(:id => params["id"])
+    @fightcard = @fight.fightcard
   end
 
   def update
@@ -53,11 +63,18 @@ class FightsController < ApplicationController
 
   def destroy
     fight = Fight.find_by(:id => params["id"])
+    scorecard = fight.scorecard
+    fight.score_1.delete
+    fight.score_2.delete
+    fight.score_3.delete
+
+    fight.scorecard.delete
     fight.delete
     redirect_to "/fights"
   end
   
   def new
+    @fightcard = Fightcard.find_by(:id => params["fcid"])
     @fight = Fight.new
   end
 
