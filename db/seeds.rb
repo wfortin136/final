@@ -9,7 +9,8 @@ lheavy = Weightclass.create(name: "Light Heavyweight", weight: 205)
 heavy = Weightclass.create(name: "Heavyweight", weight: 265)
 
 User.delete_all
-User.create(name: "admin", email: "admin@example.com", admin: true, password: "just_to_show")
+User.create(name: "admin", email: "admin@example.com", admin: true, password: "test")
+User.create(name: "billy", email: "billy@example.com", admin: false, password: "test")
 
 Judge.delete_all
 chris_lee = Judge.create(name: "Chris Lee")

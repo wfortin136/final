@@ -28,8 +28,8 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="/fightcards">FightCards</a></li>
           <li><a href="/fights">Fights</a></li>
+          <li><a href="/fightcards">FightCards</a></li>
           <li><a href="/fighters">Fighters</a></li>
           <li><a href="/judges">Judges</a></li>
           <li><a href="/scorecards">Scorecards</a></li>
@@ -43,9 +43,8 @@
 
         <ul class="nav navbar-nav navbar-right">
           <% if session[:user_id] %>
-            <!--<li class="label label-info">Score It <%= User.find(session[:user_id]).name %>!</li>-->
             <li><p class="navbar-text">Score It <%= User.find(session[:user_id]).name %>!<p></li>
-            <li><a href="/account">My Account</a></li>
+            <li><a href="/account?id=<%= session[:user_id] %>">My Account</a></li>
             <li><a href="/logout">Sign Out</a></li>
           <%else%>
             <li><a href="/users/new">Sign Up</a></li>
@@ -57,7 +56,15 @@
     </div> 
   </nav>
 
-  <%= yield %>
+  <div class="container">
+    <% if flash[:notice].present? %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <%end%>
+    <%= yield %>
+
+  </div>
 
 </body>
 </html>

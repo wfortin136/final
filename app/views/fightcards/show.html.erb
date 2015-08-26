@@ -33,20 +33,18 @@
         <th width="4%"></th>
         <th width="30%">Fight</th>
         <th width="10%">Weightclass</th>
-        <th width="8%">Championship</th>
+        <th width="4%">Title</th>
         <th width="13%">Winner</th>
         <th width="20%">Result</th>
         <th width="10%">Time</th>
+        <th width="4%"></th>
       </tr>
     </thead>  
     <tbody>
     <% @fightcard.fights.order('fight_num').each do |fight|%>
       <tr>
         <td>
-          <!--<a class="btn" href="/fights/<%=fight.id%>">Select</button>-->
-          <%= link_to "Select", "/fights/#{fight.id}" %>
-          <%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %>
-          <!--<a class="btn"><%= link_to "Delete", "/fights/#{fight.id}", :method => "delete" %></button>-->
+          <a class="btn btn-xs btn-primary pull-left" href="/fights/<%=fight.id%>">Select</a>
         </td>
         <td>
           <%# Fight%>
@@ -71,6 +69,11 @@
         <td>
           <%# fighttime%>
           R<%= fight.round %> <%= fight.roundminutes%>: <%= fight.roundsecs%>
+        </td>
+        <td>
+          <% if session[:user_id] %>
+            <a class="btn btn-xs btn-success pull-left" data-method="delete" href="/fights/<%=fight.id%>">Delete</a>
+          <% end %>
         </td>
       </tr>
     <% end %>

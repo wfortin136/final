@@ -39,7 +39,7 @@ class FightcardsController < ApplicationController
     fightcard.date = params[:fc][:date]
     
     fightcard.save
-    redirect_to root_url
+    redirect_to "/fightcards"
   end
 
   def destroy

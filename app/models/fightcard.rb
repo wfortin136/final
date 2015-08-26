@@ -20,7 +20,7 @@ class Fightcard < ActiveRecord::Base
   end
 
   def clearfights
-    Fight.all.each do |f|
+    self.fights.all.each do |f|
       f.fightcard_id = nil
       f.fight_num = nil
       f.card_level = nil

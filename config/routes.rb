@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  root 'fightcards#index'
+  root 'fights#index'
 
   get '/sessions/new' => 'sessions#new'
   post '/sessions' => 'sessions#create'

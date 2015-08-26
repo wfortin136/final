@@ -5,12 +5,15 @@ class UsersController < ApplicationController
 
   def require_login
     @user = User.find_by(id: session[:user_id])
+    puts "require_login: #{@user.id}"
     if @user.blank?
       redirect_to root_url, notice: "Please login first."
     end
   end
 
   def authorize_user
+    puts "authorize user: #{@user.id}"
+    puts params[:id]
     if @user.id != params[:id].to_i
       redirect_to root_url, notice: "Sorry!"
     end
