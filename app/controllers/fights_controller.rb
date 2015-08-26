@@ -23,6 +23,8 @@ class FightsController < ApplicationController
     else
       @fights = Fight.all
     end
+
+    @fights = @fights.page(params[:page]).per(2)
   end
 
   def create

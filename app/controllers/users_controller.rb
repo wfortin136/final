@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   def require_login
     @user = User.find_by(id: session[:user_id])
-    puts "require_login: #{@user.id}"
     if @user.blank?
       redirect_to root_url, notice: "Please login first."
     end
@@ -20,7 +19,11 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.all
+    if @user.admin
+      @users = User.all
+    else
+      redirect_to root_url, notice: "Sorry!"
+    end
   end
 
   def show

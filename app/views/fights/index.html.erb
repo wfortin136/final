@@ -1,15 +1,19 @@
 <h1> Fights </h1>
-  <% if session[:user_id] %>
-    <h4> <%= link_to "[New Fight]", "/fights/new"%> </h4>
-  <% else %>
-    <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Add Fight</h4>
-  <% end %>
-  
-  <% if @fighter%>
-    <h4> Search on <%= @fighter.name%></h4>
-  <% elsif @doesnotexist %>
-    <h4> No Fighters with name like <%= @doesnotexist %></h4>
-  <%end%>
+<% if session[:user_id] %>
+  <h4> <%= link_to "[New Fight]", "/fights/new"%> </h4>
+<% else %>
+  <h4><a href="/sessions/new">Sign In</a>/<a href="users/new">Sign Up</a> to Add Fight</h4>
+<% end %>
+
+<% if @fighter%>
+  <h4> Search on <%= @fighter.name%></h4>
+<% elsif @doesnotexist %>
+  <h4> No Fighters with name like <%= @doesnotexist %></h4>
+<%end%>
+
+<p> <%= @fights.count %> fights </p>
+<h4><%= paginate @fights %></h4>
+
 <table class='table table-striped'>
   <thead>
     <tr>
